@@ -3,12 +3,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 
 export default function Header({header}) {
-    const links = [
-        {href: "#moon", name: "moon"},
-        {href: "#mars", name: "mars"},
-        {href: "#europa", name: "europa"},
-        {href: "#titan", name: "titan"},
-    ]
+    const names = ["moon", "mars", "europa", "titan"]
 
     const linkVariants = {
         hidden: {},
@@ -36,8 +31,8 @@ export default function Header({header}) {
         <div className="w-full flex justify-center lg:justify-start">
             <ul className="flex gap-4 md:gap-8 uppercase tracking-[2.7px] text-primary md">
                 {
-                    links.map((e, index) => (
-                        <Link className="h-full relative select-none" key={index} href={e.href}>
+                    names.map((e, index) => (
+                        <button className="h-full relative select-none" key={index}>
                             <motion.li
                                 variants={linkVariants}
                                 whileHover="visible"
@@ -47,7 +42,7 @@ export default function Header({header}) {
                                     variants={hoverVariants}
                                     className={`bg-white ${e.href === header ? "!w-full bg-opacity-100" : "bg-opacity-50"} absolute right-0 bottom-0 h-[0.15em] ![--w-from:0%] [--w-to:100%] self-end`}></motion.div>
                             </motion.li>
-                        </Link>
+                        </button>
                     ))
                 }
             </ul>
