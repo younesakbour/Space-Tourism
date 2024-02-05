@@ -7,13 +7,11 @@ export default function Wrapper({children, pageProps}) {
     const wrapperVariants = {
         hidden: {
             opacity: 0,
-            y: -100,
-            x: 100,
+            y: -40,
         },
         visible: {
             opacity: 1,
-            y: 1,
-            x: 1,
+            y: 0,
             transition: {
                 ease: "easeInOut",
                 duration: .3
@@ -21,8 +19,7 @@ export default function Wrapper({children, pageProps}) {
         },
         exit: {
             opacity: 0,
-            y: -200,
-            x: 300,
+            y: 40,
             scale: 0.4,
             transition: {
                 ease: "easeInOut",
