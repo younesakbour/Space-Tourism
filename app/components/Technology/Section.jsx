@@ -93,11 +93,13 @@ export default function Section() {
             className="hidden lg:block"
             src={technologies[index].imagePortrait}
             layout="fill"
+            priority={true}
           />
           <Image
             className="lg:hidden"
             src={technologies[index].imageLandscape}
             layout="fill"
+            priority={true}
           />
         </motion.div>
       </div>

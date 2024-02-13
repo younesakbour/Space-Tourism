@@ -105,7 +105,7 @@ export default function Section() {
           initial="hidden"
           animate="visible"
         >
-          <Image className="w-full absolute" layout="fill" objectFit="contain" src={crews[index].image} alt={crews[index].position}/>
+          <Image priority={true} className="w-full absolute" layout="fill" objectFit="contain" src={crews[index].image} alt={crews[index].position}/>
         </motion.div>
       </div>
       </AnimatePresence>

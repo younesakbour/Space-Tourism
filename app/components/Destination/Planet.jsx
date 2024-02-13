@@ -91,6 +91,7 @@ export default function Planet({el}) {
                         className="w-1/2 md:w-1/4 lg:w-[60%]"
                         src={destinationArray[index].image}
                         alt={destinationArray[index].title}
+                        priority={true}
                     />
                 </motion.div>
                 <div className="max-md:w-full flex flex-col items-center pt-4 lg:pt-0 lg:w-1/2">
