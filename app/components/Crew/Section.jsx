@@ -46,7 +46,7 @@ export default function Section() {
           </div>
           <div className="w-full md:px-16 lg:pl-12 flex gap-3 lg:gap-6 justify-center lg:justify-start pt-3 md:py-6 lg:py-0">
             {crews.map((e, ind) => (
-              <button className="bg-white opacity-[17.44%] p-[6px] rounded-full" key={ind}></button>
+              <button onClick={() => setIndex(ind)} className={`bg-white ${ index === ind ? "" : "opacity-[17.44%]"} p-[6px] rounded-full`} key={ind}></button>
             ))}
           </div>
         </div>

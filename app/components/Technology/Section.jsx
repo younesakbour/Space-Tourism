@@ -33,7 +33,7 @@ export default function Section() {
         <div className="w-full lg:h-[40vh] md:w-[75%] lg:w-[60%] flex flex-col lg:flex-row px-8 lg:px-0">
           <div className="w-full py-6 md:py-10 lg:py-0 lg:h-full flex lg:flex-col gap-3 lg:gap-0 items-center justify-center lg:justify-between lg:w-[20%]">
             {technologies.map((e, ind) => (
-              <button className={`${bellefair.className} border-[2px] ${index === ind ? "border-white bg-white text-black cursor-default" : "border-white border-opacity-25"} w-[40px] h-[40px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] flex justify-center items-center rounded-full text-[16px] md:text-[24px] lg:text-[32px] tracking-[1px] md:tracking-[2px]`}>{++ind}</button>
+              <button onClick={() => setIndex(--ind)} className={`${bellefair.className} border-[2px] ${index === ind ? "border-white bg-white text-black cursor-default" : "border-white border-opacity-25"} w-[40px] h-[40px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] flex justify-center items-center rounded-full text-[16px] md:text-[24px] lg:text-[32px] tracking-[1px] md:tracking-[2px]`}>{++ind}</button>
             ))}
           </div>
           <div className="w-full h-full lg:w-[80%] space-y-3 md:space-y-8 lg:space-y-0 lg:pl-8 flex flex-col justify-between items-center lg:items-start text-center lg:text-start">
