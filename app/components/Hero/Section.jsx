@@ -8,7 +8,7 @@ import Text from "../Text"
 import Link from "next/link"
 
 export default function Section() {
-    const [isHovered, setHovered] = useState(true)
+    const [isHovered, setHovered] = useState(false)
     const headingTwoVariants = {
         visible: {
             x: ["100%", "-100%"],
@@ -29,6 +29,8 @@ export default function Section() {
         <div className="md:w-[420px] text-center lg:text-start pt-0 md:pt-8 lg:pt-0 max-sm:leading-[6em] max-lg:leading-[10em] overflow-hidden"
         >
           <motion.h2 className="md:text-xl lg:text-2xl text-primary tracking-[4.75px]"
+            variants={headingTwoVariants}
+            animate="visible"
           >SO, YOU WANT TO TRAVEL TO</motion.h2>
           <Title title="SPACE" delay={1} myClass="text-[80px] md:text-[150px]" />
           <Text text={text} textJustify={true} delay={2} />
