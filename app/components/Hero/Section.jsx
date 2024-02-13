@@ -5,6 +5,7 @@ import Title from "../Title"
 import { primaryCircle, seconderyCircle } from "@/utils/animation"
 import { useState } from "react"
 import Text from "../Text"
+import Link from "next/link"
 
 export default function Section() {
     const [isHovered, setHovered] = useState(false)
@@ -35,7 +36,7 @@ export default function Section() {
           <Text text={text} textJustify={true} delay={2} />
         </div>
       </div>
-      <div className="lg:w-1/2 flex justify-center select-none">
+      <Link href="/destination" className="lg:w-1/2 flex justify-center select-none">
         <motion.div className="bg-white bg-opacity-50 w-[140px] h-[140px] lg:w-[240px] lg:h-[240px] rounded-full z-0 relative"
           variants={seconderyCircle}
           animate={isHovered ? "hover" : "hidden"}
@@ -49,7 +50,7 @@ export default function Section() {
         >
           <p className={`${bellefair.className} uppercase text-xl lg:text-[32px] tracking-[2px] text-second`}>Explore</p>
         </motion.div>
-      </div>
+      </Link>
     </div>
   )
 }

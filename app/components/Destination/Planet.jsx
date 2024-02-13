@@ -121,7 +121,7 @@ export default function Planet({el}) {
                             <Text text={destinationArray[index].par} textJustify={false} delay={.8} />
                         </motion.div>
                         <hr className="w-full mt-6 lg:mt-12 mb-6" />
-                        <div className="md:flex justify-center lg:justify-start gap-16 space-y-6 md:space-y-0">
+                        <div className="md:flex justify-center lg:justify-start gap-16 space-y-6 md:space-y-0 pb-6">
                             <div className="text-center md:text-start">
                                 <h5 className="text-sm text-primary tracking-[2.36px]">AVG. DISTANCE</h5>
                                 <motion.h4 key={destinationArray[index].title} initial={{opacity: 0, x: 10}} animate={{opacity: 1, x: 0}} transition={{ease: "linear", duration: .3}} className={`${bellefair.className} uppercase text-[28px]`}>{destinationArray[index].avg}</motion.h4>

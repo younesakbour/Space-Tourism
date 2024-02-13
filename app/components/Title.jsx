@@ -5,7 +5,7 @@ import { titleVariants } from "@/utils/animation"
 
 export default function Title({title, myClass, delay}) {
   return (
-    <motion.h1 className={`${bellefair.className} ${myClass}`}
+    <motion.h1 className={`${bellefair.className} ${myClass} select-none`}
         initial="hidden"
         animate="visible"
         transition={{staggerChildren: .3, delayChildren: delay}}
