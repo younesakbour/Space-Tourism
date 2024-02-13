@@ -1,9 +1,11 @@
 "use client"
 import { motion } from "framer-motion"
-import { barlow_condensed, bellefair } from "@/utils/fonts"
+import { barlow, bellefair } from "@/utils/fonts"
 import Image from "next/image"
+import { useState } from "react"
 
 export default function Section() {
+  const [index, setIndex] = useState(3)
   const crews = [
     {
       position: "Commander",
@@ -31,25 +33,25 @@ export default function Section() {
     },
   ]
   return (
-    <div className='h-screen w-full lg:max-w-[1280px] pt-24 md:pt-32 px-8 lg:pt-[10em] mx-auto max-h-screen flex flex-col items-center md:items-start'>
+    <div className='min-h-screen w-full overflow-scroll lg:overflow-hidden lg:max-w-[1280px] pt-24 md:pt-32 px-8 lg:pt-[10em] mx-auto max-h-screen flex flex-col items-center md:items-start'>
       <div className='flex gap-4 md:text-xl lg:text-[28px] uppercase tracking-[2.7px] md:tracking-[3.38px] lg:tracking-[4.72px] px-8'><span className='opacity-25'>02</span><h2>Meet your crew</h2></div>
-      <div className='h-full w-full flex flex-col-reverse md:flex-col lg:flex-row items-center lg:items-end md:justify-end md:px-8 lg:px-0'>
+      <div className='h-full md:h-screen w-full flex flex-col-reverse md:flex-col lg:flex-row items-center lg:items-end md:justify-end pt-3 md:pt-0 md:px-8 lg:px-0'>
         <div className="w-full h-full md:h-fit lg:h-[90%] lg:w-[55%] flex flex-col-reverse justify-end lg:justify-between md:flex-col py-4 lg:py-16">
           <div className={`${bellefair.className} w-full md:px-16 lg:pl-12 space-y-3 md:space-y-6 lg:space-y-10 text-center lg:text-start pt-6 md:pt-0`}>
             <div className="md:space-y-3 lg:space-y-8">
-              <h3 className="text-base md:text-2xl lg:text-[32px] uppercase opacity-50">{crews[3].position}</h3>
-              <h2 className="text-2xl md:text-[40px] lg:text-[56px] uppercase">{crews[3].name}</h2>
+              <h3 className="text-base md:text-2xl lg:text-[32px] uppercase opacity-50">{crews[index].position}</h3>
+              <h2 className="text-2xl md:text-[40px] lg:text-[56px] uppercase">{crews[index].name}</h2>
             </div>
-            <p className={`${barlow_condensed.className} text-[15px] md:text-[16px] lg:text-[18px] leading-7 md:px-4 lg:px-0 lg:leading-8 lg:w-[70%] text-primary`}>{crews[3].descr}</p>
+            <p className={`${barlow.className} text-[15px] md:text-[16px] lg:text-[18px] leading-7 lg:leading-8 lg:w-[80%] text-primary`}>{crews[index].descr}</p>
           </div>
-          <div className="w-full md:px-16 lg:pl-12 flex gap-3 lg:gap-6 justify-center lg:justify-start md:py-6 lg:py-0">
+          <div className="w-full md:px-16 lg:pl-12 flex gap-3 lg:gap-6 justify-center lg:justify-start pt-3 md:py-6 lg:py-0">
             {crews.map((e, ind) => (
               <button className="bg-white opacity-[17.44%] p-[6px] rounded-full" key={ind}></button>
             ))}
           </div>
         </div>
-        <div className="w-[70%] md:w-full lg:w-[45%] h-full md:h-[60%] lg:h-[90%] relative">
-          <Image className="w-full absolute" layout="fill" objectFit="contain" src={crews[3].image} />
+        <div className="w-[70%] md:w-full lg:w-[45%] h-[32vh] md:h-[60%] lg:h-[90%] relative">
+          <Image className="w-full absolute" layout="fill" objectFit="contain" src={crews[index].image} />
         </div>
       </div>
     </div>

@@ -1,7 +1,11 @@
 "use client"
 import { motion } from "framer-motion"
+import Image from "next/image"
+import { bellefair, barlow } from "@/utils/fonts"
+import { useState } from "react"
 
 export default function Section() {
+  const [index, setIndex] = useState(0)
   const technologies = [
     {
       name: "LAUNCH VEHICLE",
@@ -23,14 +27,35 @@ export default function Section() {
     },
   ]
   return (
-    <div className='h-screen w-full lg:max-w-[1280px] pt-24 md:pt-32 lg:pt-[10em] lg:px-12 mx-auto lg:p-8 max-h-screen flex flex-col items-center md:items-start'>
+    <div className='min-h-screen overflow-scroll md:overflow-hidden w-full lg:max-w-[1280px] pt-24 md:pt-32 lg:pt-[10em] lg:px-12 mx-auto lg:p-8 max-h-screen flex flex-col items-center md:items-start'>
       <div className='flex gap-4 md:text-xl lg:text-[28px] uppercase tracking-[2.7px] md:tracking-[3.38px] lg:tracking-[4.72px] px-8'><span className='opacity-25'>03</span><h2>SPACE LAUNCH 101</h2></div>
-      <div className='h-full w-full flex flex-col-reverse lg:flex-row bg-white items-center justify-center lg:justify-start'>
-        <div className="w-full lg:h-36 md:w-[75%] lg:w-[60%] flex flex-col lg:flex-row px-8 lg:px-0">
-          <div className="w-full h-8 lg:h-full lg:w-[20%] bg-green-600"></div>
-          <div className="w-full h-32 lg:h-full lg:w-[80%] bg-red-600"></div>
+      <div className='h-full md:h-screen w-full flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-start py-6 md:pt-0'>
+        <div className="w-full lg:h-[40vh] md:w-[75%] lg:w-[60%] flex flex-col lg:flex-row px-8 lg:px-0">
+          <div className="w-full py-6 md:py-10 lg:py-0 lg:h-full flex lg:flex-col gap-3 lg:gap-0 items-center justify-center lg:justify-between lg:w-[20%]">
+            {technologies.map((e, ind) => (
+              <button className={`${bellefair.className} border-[2px] ${index === ind ? "border-white bg-white text-black cursor-default" : "border-white border-opacity-25"} w-[40px] h-[40px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] flex justify-center items-center rounded-full text-[16px] md:text-[24px] lg:text-[32px] tracking-[1px] md:tracking-[2px]`}>{++ind}</button>
+            ))}
+          </div>
+          <div className="w-full h-full lg:w-[80%] space-y-3 md:space-y-8 lg:space-y-0 lg:pl-8 flex flex-col justify-between items-center lg:items-start text-center lg:text-start">
+            <div className="space-y-1 md:space-y-6 lg:space-y-6">
+              <h3 className="text-sm md:text-base tracking-[2.36px] text-primary">THE TERMINOLOGY…</h3>
+              <h2 className={`${bellefair.className} text-2xl md:text-[40px] lg:text-[56px]`}>{technologies[index].name}</h2>
+            </div>
+            <p className={`${barlow.className} text-[15px] md:text-lg text-primary md:w-[90%] lg:w-[80%] md:leading-7 lg:leading-8`}>{technologies[index].descr}</p>
+          </div>
         </div>
-        <div className="w-full lg:absolute right-0 lg:w-[40%] h-36 lg:h-64 bg-yellow-600"></div>
+        <div className={`relative w-full lg:absolute right-0 lg:w-[30%] h-[25vh] lg:h-[60vh]`}>
+          <Image
+            className="hidden lg:block"
+            src={technologies[index].imagePortrait}
+            layout="fill"
+          />
+          <Image
+            className="lg:hidden"
+            src={technologies[index].imageLandscape}
+            layout="fill"
+          />
+        </div>
       </div>
     </div>
   )
